@@ -1,0 +1,120 @@
+---
+const { title, description, tags = [], icon, colorClass = 'default' } = Astro.props;
+
+const colorMap = {
+  blue:   { bg: 'linear-gradient(135deg, #1a1a2e, #16213e)', icon: 'rgba(196, 240, 77, 0.12)' },
+  red:    { bg: 'linear-gradient(135deg, #1a0a0a, #2d1515)', icon: 'rgba(255, 107, 107, 0.12)' },
+  green:  { bg: 'linear-gradient(135deg, #0a1a0a, #152d15)', icon: 'rgba(77, 240, 150, 0.12)' },
+  orange: { bg: 'linear-gradient(135deg, #1a100a, #2d2015)', icon: 'rgba(240, 180, 77, 0.12)' },
+  purple: { bg: 'linear-gradient(135deg, #150a1a, #25152d)', icon: 'rgba(200, 130, 255, 0.12)' },
+  default:{ bg: 'linear-gradient(135deg, #1a1a2e, #16213e)', icon: 'rgba(196, 240, 77, 0.12)' },
+};
+
+const colors = colorMap[colorClass] || colorMap.default;
+---
+
+<div class="project-card">
+  <div class="project-visual" style={`background: ${colors.bg}`}>
+    <div class="icon-wrap" style={`background: ${colors.icon}`}>{icon}</div>
+  </div>
+  <div class="project-arrow">↗</div>
+  <div class="project-info">
+    <div class="project-tags">
+      {tags.map(tag => <span class="project-tag">{tag}</span>)}
+    </div>
+    <div class="project-name">{title}</div>
+    <div class="project-desc">{description}</div>
+  </div>
+</div>
+
+<style>
+  .project-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  }
+
+  .project-visual {
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .icon-wrap {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    transition: transform 0.4s ease;
+  }
+
+  .project-card:hover .icon-wrap { transform: scale(1.1); }
+
+  .project-arrow {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    transition: all 0.3s;
+  }
+
+  .project-card:hover .project-arrow {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(196, 240, 77, 0.08);
+  }
+
+  .project-info { padding: 1.8rem; }
+
+  .project-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .project-tag {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(196, 240, 77, 0.08);
+    padding: 0.3rem 0.7rem;
+    border-radius: 100px;
+  }
+
+  .project-name {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .project-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+</style>

@@ -1,0 +1,102 @@
+<section class="hero">
+  <div class="hero-eyebrow">UIUX Designer · Front-End Developer</div>
+  <h1>
+  Hello,I'm Hsin-En,Lin
+  <br/>
+  <em>An UIUX Designer,Developer and Artist</em>
+  </h1>
+  <p class="hero-description">
+    嗨，我是林新恩。我熱衷於在使用者體驗、前端工程與視覺藝術之間，打造兼具美感與功能的數位產品。
+  </p>
+  <div class="hero-cta">
+    <a href="#projects" class="btn btn-primary">瀏覽作品</a>
+    <a href="#contact" class="btn btn-outline">聯繫我</a>
+  </div>
+  <div class="hero-scroll-hint">
+    <span class="scroll-line"></span>
+    向下滾動探索
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 3rem 4rem;
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    max-width: 900px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.4s;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-description {
+    margin-top: 2rem;
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 520px;
+    line-height: 1.8;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.6s;
+  }
+
+  .hero-cta {
+    margin-top: 3rem;
+    display: flex;
+    gap: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.8s;
+  }
+
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: 3rem;
+    left: 3rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 1s;
+  }
+
+  .scroll-line {
+    width: 40px;
+    height: 1px;
+    background: var(--text-secondary);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @media (max-width: 768px) {
+    .hero { padding: 7rem 1.5rem 3rem; }
+    .hero-scroll-hint { display: none; }
+  }
+</style>
