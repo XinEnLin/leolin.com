@@ -5,6 +5,6 @@ import { defineConfig } from 'astro/config';
 // 如果你的 repo 名稱是其他名字 → 取消下方 base 的註解，填入 repo 名稱
 
 export default defineConfig({
-  site: 'https://leolin.com',
+  site: 'https://leolin.github.io',
   base: '/leolin.com',
 });
