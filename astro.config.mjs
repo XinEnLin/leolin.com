@@ -6,5 +6,5 @@ import { defineConfig } from 'astro/config';
 
 export default defineConfig({
   site: 'https://leolin.github.io',
-  base: '/leolin.com',
+  base: '/leolin',
 });
